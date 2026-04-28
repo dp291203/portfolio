@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Chennai, India</p>
+    <p>Bengaluru, India</p>
     <p>dp33211203@gmail.com</p>
 
 selected_papers: true
