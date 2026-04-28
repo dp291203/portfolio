@@ -2,33 +2,58 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: ML Researcher | Generative AI | GPU Systems | Autonomous Robotics
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Chennai, India</p>
+    <p>dp33211203@gmail.com</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: true
+  scrollable: true
+  limit: 5
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
+  scrollable: true
+  limit: 3
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm **Divya Sai Aamuktha Pelluri** -- an AI engineer who builds systems that work in the real world, not just in notebooks. I'm a **TDP Associate at Optum (UnitedHealth Group)**, where I completed the Generative AI Dojo and work with React, Spring Boot, Kubernetes, and Terraform. Previously, I was an **AI Engineer at Youkti AI** (Sep 2025 -- Apr 2026), where I designed and deployed multi-agent LLM pipelines on AWS Lambda that parsed Microsoft Teams messages at scale, reducing pipeline latency by 5-6 seconds under strict SLA constraints.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I graduated from **SRM Institute of Science and Technology** with a B.Tech in Computer Science (GPA **9.69/10**, Class Rank **1**) and am completing a **Diploma in Data Science from IIT Madras**.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+### What I Work On
+
+My core expertise sits at the intersection of **reinforcement learning**, **generative AI**, **GPU systems**, and **autonomous robotics**. I've shipped code across all of these:
+
+- **Multi-agent RL for energy systems** -- At the Dusseldorf Institute of Technology (Jul 2024 -- Jul 2025), I designed multi-objective reward functions for V2G optimization, implemented SAC and MADDPG deep RL algorithms GPU-trained via RLlib, integrated a rule-based safety shield that reduced critical violations and boosted agent efficiency by **11%**, and extended CityLearn with peer-to-peer energy sharing.
+- **Multimodal emotion recognition** -- At Samsung R&D (May -- Dec 2023), I trained an ECAPA-TDNN audio model (**97% accuracy**) and an LSTM gesture pipeline, fused them via Fuzzy Logic (**87% robustness**), and co-authored the resulting paper published at **IEEE CONECCT 2024** at IISc Bangalore.
+- **NLP + knowledge graphs for mining safety** -- At IIT (ISM) Dhanbad (Jan -- Mar 2025), I built a hybrid RAG system combining dense retrieval and knowledge graph querying, developed an NLP classifier predicting accident codes at **80% accuracy**, and used NMF topic modeling with Protege ontologies.
+- **Embedded AI for 5G** -- At the IIT Madras 5G Testbed (Jun -- Aug 2023), I developed real-time sensor acquisition firmware for C2000 and TIVA microcontrollers with MQTT-based low-latency cloud streaming.
+- **Telecom microservices** -- At Nokia R&D (Aug 2024 -- May 2025), I automated and stress-tested AltiPlano microservices and optimized HostSim launch workflows.
+
+### ROBOCON & Defense Robotics
+
+The experience that shaped me most was leading the **Systems Programming & CV Division** for DD ROBOCON -- India's premier collegiate robotics competition. In 2024, my division deployed real-time YOLOv5 instance segmentation (7K+ labeled images) on **NVIDIA Jetson Orin AGX**, built a ROS2-based AI decision engine, and optimized model quantization across Jetson Orin AGX, Orin Nano, Xavier NX, and Jetson Nano. We placed **8th nationally** out of 120+ teams. In 2023, we placed **11th** with PID-tuned motor control and NRF wireless communication.
+
+More recently, I led an 8-member team to design and field-test a **semi-autonomous UGV for anti-tank mine laying** in collaboration with the 19 Engineer Regiment, Indian Army (May -- Jul 2025). The UGV executes a three-stage autonomous pipeline -- excavation, mine placement, and camouflage -- with a 2 km wireless radius. It was field-tested in Ladakh (sub-zero), Rajasthan (desert), and Punjab (mixed terrain). We were **selected among the Top 30 out of 260+ innovations** at the Northern Command Inno Yodha Competition 2025-26.
+
+### Projects
+
+**EVA** is an autonomous campus robot (Dec 2024 -- May 2025) with SLAM navigation, Whisper + LLaMA RAG chatbot, face recognition on NVIDIA Jetson Orin Nano, and an animatronic face for expressive human-robot interaction. **LLM Deploy Tool** (Sep -- Dec 2025) is an end-to-end scaffolding tool that auto-generates a polished interactive frontend for any LLM backend and deploys it as a live public web app via GitHub Pages. **Muse** (Sep -- Nov 2023) is a three-model music generation pipeline (LSTM + VAE + GAN) trained on 100K+ MIDI files, producing 1,000+ unique compositions. **NotePro** (Dec 2023 -- Apr 2024) converts lecture audio into structured notes using BART summarization, NER, and speech-to-text, achieving **90% accuracy**.
+
+### Beyond Code
+
+I've trained for 8 years in **Bharatanatyam** (Visharada certification), 6 years in **Carnatic classical music**, and hold a **Black Belt in Karate**. These aren't unrelated to engineering -- the discipline of classical dance and the pattern recognition in music have directly shaped how I think about system design and debugging.
+
+### Get in Touch
+
+I'm open to research collaborations, challenging engineering problems, and conversations about AI, robotics, or music. Reach me at **dp33211203@gmail.com** or connect on [LinkedIn](https://linkedin.com/in/divya-aamuktha).
