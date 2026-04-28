@@ -1,189 +1,216 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
+  name: Divya Sai Aamuktha Pelluri
+  label: "ML Researcher | Generative AI | GPU Systems | Autonomous Robotics"
+  email: dp33211203@gmail.com
+  location: Chennai, India
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  summary: AI Engineer and Researcher with deep expertise in multi-agent systems, reinforcement learning, robotics, NLP, and computer vision. Currently building production AI systems at Optum and Youkti AI. Strong academic foundation with B.Tech from SRM (GPA 9.69, Rank 1) and Diploma in Data Science from IIT Madras. Published at IEEE CONECCT 2024. Top 30/260+ at Northern Command Inno Yodha 2025-26.
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: dp291203
     - network: LinkedIn
-      username: example
+      username: divya-aamuktha
 
   address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+    city: Chennai
+    region: Tamil Nadu
+    countryCode: IN
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
+      - institution: SRM Institute of Science and Technology
+        location: Chennai, India
+        url: https://www.srmist.edu.in/
+        area: Computer Science and Engineering
+        studyType: B.Tech
+        start_date: 2021-09
+        end_date: 2025-06
+        score: "9.69/10"
         highlights:
-          - Description 1.
-          - Description 2.
+          - "GPA: 9.69/10"
+          - "Class Rank 1 (2021-2024)"
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
+      - institution: Indian Institute of Technology Madras
+        location: Chennai, India
+        url: https://www.iitm.ac.in/
+        area: Data Science
+        studyType: Diploma
+        start_date: 2023-09
+        end_date: 2025-12
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: Optum (UnitedHealth Group)
+        position: TDP Associate
+        location: Bangalore, India
+        start_date: 2025-07
+        end_date: present
         highlights:
-          - Relativity
-          - Description 2.
+          - "Completed Generative AI Dojo certification with excellent grade; built production-grade experience in React, Spring Boot, Kubernetes, Terraform, Docker, and CI/CD during TDP Boot Camp"
+          - "Implemented error mapping for Blaze rules migration POC; contributed salary object mapping for Tennessee and Alvar eligibility event mapping globally; completed VACCCP Group ID profile for Virginia"
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: Youkti AI
+        position: AI Engineer
+        location: Remote
+        start_date: 2025-09
+        end_date: 2026-04
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Designed and deployed multi-agent LLM pipelines parsing Microsoft Teams messages and calendar invites, automatically surfacing structured task items for end users across an organization"
+          - "Built a scheduled AWS Lambda orchestration layer executing multi-agent workflows asynchronously at scale, eliminating manual triggers across all users"
+          - "Reduced end-to-end latency of email and competitive-intelligence pipelines by 5-6s (3-10%) under strict 1-3 min SLA constraints via GPU batching, pipeline parallelism, and async execution"
+          - "Extended CDC workflows with multimodal image ingestion via Pinecone vector retrieval and AWS S3, enabling scalable multimodal data handling across the platform"
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: "Dusseldorf Institute of Technology"
+        position: "Research Intern -- Reinforcement Learning | Dr. Andreas J. Kassler"
+        location: "Germany (Remote)"
+        start_date: 2024-07
+        end_date: 2025-07
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - "Designed a multi-objective reward function for Vehicle-to-Grid (V2G) optimization, balancing SOC management, self-consumption, peak load reduction, and carbon minimization across a simulated multi-agent energy district"
+          - "Implemented SAC and MADDPG deep RL algorithms GPU-trained via RLlib; integrated a rule-based safety shield enforcing hard operational constraints, reducing critical violations and boosting agent efficiency by 11%"
+          - "Extended CityLearn with a peer-to-peer energy-sharing mechanism enabling surplus trading between agents, reducing grid imports and environmental impact"
+
+      - company: Nokia
+        position: R&D Intern
+        location: Chennai, India
+        start_date: 2024-08
+        end_date: 2025-05
+        highlights:
+          - "Automated and stress-tested AltiPlano microservices to improve reliability; optimized HostSim launch workflow; implemented batch migration of network intents and devices to streamline simulator operations"
+
+      - company: "IIT (ISM) Dhanbad"
+        position: "Research Intern -- NLP / Knowledge Graphs | Dr. Siddharth Agarwal"
+        location: Remote
+        start_date: 2025-01
+        end_date: 2025-03
+        highlights:
+          - "Built a hybrid RAG system combining dense retrieval and knowledge graph querying for natural-language analysis and auto-generation of reports from unstructured mining accident records"
+          - "Developed an NLP classifier to predict accident codes from text descriptions (80% accuracy); applied NMF and Cosine Similarity for topic modeling; used Protege ontologies for knowledge representation"
+
+      - company: Samsung R&D Institute
+        position: "R&D Intern -- Audio-Visual AI | Dr. Minu R I & Dr. Jotimoroy Karjee"
+        location: Bangalore, India
+        start_date: 2023-05
+        end_date: 2023-12
+        highlights:
+          - "Trained an ECAPA-TDNN model adapted for audio emotion recognition achieving 97% accuracy on benchmark datasets using PyTorch on a GPU cluster"
+          - "Built a body-gesture emotion recognition pipeline using LSTM on skeleton pose-sequence data; fused audio and visual modalities via Fuzzy Logic, improving cross-modal robustness to 87%"
+          - "Co-authored and presented research at IEEE CONECCT 2024, IISc Bangalore -- published in IEEE Xplore"
+
+      - company: IIT Madras 5G Testbed
+        position: "Research Intern -- Embedded AI / 5G | Dr. Sankaran Aniruddhan"
+        location: Chennai, India
+        start_date: 2023-06
+        end_date: 2023-08
+        highlights:
+          - "Developed real-time sensor acquisition firmware for C2000 F28388 and TIVA TM4C microcontrollers; implemented MQTT-based communication and HTTP scheduler for synchronized low-latency multi-sensor cloud streaming in a 5G mmWave testbed"
+          - "Applied RTOS, embedded networking, and serial communication protocols to interface sensors with central processing nodes across the testbed architecture"
+
+      - company: "ROBOCON -- DD ROBOCON"
+        position: Systems Programming & CV Lead
+        location: Chennai, India
+        start_date: 2022-09
+        end_date: 2024-07
+        highlights:
+          - "Led vision and systems division -- 8th nationally (2024), 11th nationally (2023). Deployed real-time YOLOv5 instance segmentation (7K+ labeled images) on NVIDIA Jetson Orin AGX for autonomous object detection and grasping"
+          - "Built a ROS2-based rule-driven AI system integrating NLP and CV; engineered inverse kinematics, odometry, CAN network communication, and PID-tuned motor control for precise semi-autonomous operation"
+          - "Optimized model quantization and inference pipelines across Jetson Orin AGX, Orin Nano, Xavier NX, and Jetson Nano to meet strict real-time latency and power constraints"
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - title: "Top 30 / 260+ Innovations, Northern Command Inno Yodha 2025-26"
+        date: 2025
+        awarder: Indian Army Northern Command
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: "8th Position Nationally, DD ROBOCON 2024"
+        date: 2024
+        awarder: Doordarshan India
+
+      - title: "11th Position Nationally, DD ROBOCON 2023"
+        date: 2023
+        awarder: Doordarshan India
+
+      - title: "Class Rank 1 (2021-2024)"
+        date: 2024
+        awarder: SRM Institute of Science and Technology
+
+      - title: "Top 5, Standard Chartered Hackathon"
+        date: 2023
+        awarder: Standard Chartered
 
     Publications:
-      - title: Zur Elektrodynamik bewegter Körper
+      - title: Emotion Detection in Multimodal Communication through Audio-Visual Gesture Analysis
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
-
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
-
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+          - Divya Sai Aamuktha Pelluri
+        publisher: IEEE CONECCT 2024, IISc Bangalore
+        releaseDate: 2024-07
+        url: https://ieeexplore.ieee.org/
+        summary: Published in IEEE Xplore. Multimodal emotion recognition combining ECAPA-TDNN audio model (97% accuracy) and LSTM gesture pipeline, fused via Fuzzy Logic (87% robustness).
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Languages
+        icon: fa-solid fa-code
+        keywords: "Python, C++, C, Embedded C, Bash"
+
+      - name: AI / ML
+        icon: fa-solid fa-brain
+        keywords: "PyTorch, TensorFlow, Scikit-learn, RLlib, Stable Baselines, Hugging Face Transformers, ONNX, XGBoost"
+
+      - name: Generative AI
+        icon: fa-solid fa-wand-magic-sparkles
+        keywords: "LSTM, VAE, GAN, Diffusion Models, Vision Transformers, LLaMA, BART, Whisper API"
+
+      - name: GPU / Hardware
+        icon: fa-solid fa-microchip
+        keywords: "NVIDIA Jetson Orin AGX, Orin Nano, Xavier NX, Jetson Nano, A100 & T4 (cloud)"
+
+      - name: Robotics & CV
+        icon: fa-solid fa-robot
+        keywords: "ROS2, Gazebo, OpenCV, YOLOv5, SLAM, Inverse Kinematics, FreeRTOS, MQTT, CAN, Arduino, Raspberry Pi"
+
+      - name: Tools & Infra
+        icon: fa-solid fa-tools
+        keywords: "Docker, Kubernetes, Helm, AWS Lambda, Pinecone, GitHub Pages, Git, Jupyter, LaTeX"
+
+      - name: Data
+        icon: fa-solid fa-database
+        keywords: "SQL, Tableau, Pandas"
 
     Languages:
-      - name: German
-        summary: "Native speaker"
-
       - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+        summary: "Professional proficiency"
+      - name: Telugu
+        summary: "Native proficiency"
+      - name: Hindi
+        summary: "Intermediate proficiency"
+      - name: German
+        summary: "Intermediate proficiency"
 
     Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
+      - name: AI Dojo Generative AI Certification
+        date: 2025
+        issuer: Optum
+        icon: fa-solid fa-brain
 
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
+      - name: Oracle Cloud Infrastructure Foundations Associate
+        date: 2024
+        issuer: Oracle
+        icon: fa-solid fa-cloud
 
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
+      - name: AWS AI/ML Summer School
+        date: 2023
+        issuer: Amazon India
+        icon: fa-solid fa-graduation-cap
 
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
+      - name: PwC Cybersecurity Certification
+        date: 2024
+        issuer: PwC
+        icon: fa-solid fa-shield-halved
 
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+    Interests:
+      - name: "Artificial Intelligence & Robotics"
+        icon: fa-solid fa-robot
+        keywords: "Multi-Agent Systems, Reinforcement Learning, Computer Vision, NLP, Autonomous Systems"
 
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: "Arts & Culture"
+        icon: fa-solid fa-palette
+        keywords: "Bharatanatyam (8 yrs, Visharada), Carnatic Music (6 yrs), Drawing, Karate (Black Belt)"
