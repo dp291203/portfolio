@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/portfolio/projects/";
           },
+        },{id: "nav-research",
+          title: "research",
+          description: "My research across multimodal AI, multi-agent reinforcement learning, embedded 5G systems, and NLP/knowledge graphs — spanning Samsung R&amp;D, IIT Madras, a German RL lab, and IIT (ISM) Dhanbad.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/portfolio/research/";
+          },
         },{id: "nav-publications",
           title: "publications",
           description: "My research publications in peer-reviewed conferences and journals.",
@@ -51,9 +58,9 @@ ninja.data = [{
           section: "News",},{id: "news-completed-ai-dojo-generative-ai-certification-from-optum-with-an-excellent-grade-covering-llm-fine-tuning-prompt-engineering-rag-architectures-and-enterprise-ai-deployment-patterns",
           title: 'Completed AI Dojo Generative AI Certification from Optum with an excellent grade, covering...',
           description: "",
-          section: "News",},{id: "projects-eva-enhanced-visitor-assistant-robot",
-          title: 'EVA - Enhanced Visitor Assistant Robot',
-          description: "A fully autonomous campus robot combining ROS2, SLAM, LLM-powered conversation, face recognition, and an animatronic face for human-like interaction.",
+          section: "News",},{id: "projects-eva-enhanced-virtual-assistant-humanoid-robot",
+          title: 'EVA - Enhanced Virtual Assistant Humanoid Robot',
+          description: "A 1.72m autonomous humanoid robot fusing ROS2, omnidirectional SLAM navigation, 6-DOF manipulation, and an LLM-powered conversational stack. My B.Tech multidisciplinary major project.",
           section: "Projects",handler: () => {
               window.location.href = "/portfolio/projects/eva_robot/";
             },},{id: "projects-llm-application-deployment-tool",
@@ -71,14 +78,14 @@ ninja.data = [{
           description: "An end-to-end NLP pipeline that converts raw lecture audio into structured, hierarchical study notes using speech-to-text, NER, topic modeling, and BART summarization.",
           section: "Projects",handler: () => {
               window.location.href = "/portfolio/projects/notepro/";
-            },},{id: "projects-dd-robocon-autonomous-competition-robots",
-          title: 'DD ROBOCON - Autonomous Competition Robots',
-          description: "Two years leading the Systems Programming division for India&#39;s premier robotics competition. 8th nationally in 2024, 11th in 2023.",
+            },},{id: "projects-dd-robocon-competition-robots",
+          title: 'DD ROBOCON - Competition Robots',
+          description: "Two seasons in the Systems Programming division for India&#39;s premier collegiate robotics competition -- 8th nationally in 2024, 11th in 2023.",
           section: "Projects",handler: () => {
               window.location.href = "/portfolio/projects/robocon/";
-            },},{id: "projects-ugv-anti-tank-mine-laying-system",
-          title: 'UGV Anti-Tank Mine Laying System',
-          description: "A semi-autonomous Unmanned Ground Vehicle designed and field-tested in collaboration with the Indian Army for automated anti-tank mine laying operations. Top 30 out of 260+ innovations at Northern Command Inno Yodha 2025-26.",
+            },},{id: "projects-ugv-indian-army-collaboration",
+          title: 'UGV (Indian Army Collaboration)',
+          description: "A semi-autonomous Unmanned Ground Vehicle developed in collaboration with the Indian Army. Details are confidential. Top 30 of 260+ innovations at the Northern Command Inno Yodha Competition.",
           section: "Projects",handler: () => {
               window.location.href = "/portfolio/projects/ugv_mine_layer/";
             },},{
