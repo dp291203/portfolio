@@ -46,6 +46,7 @@ cv:
         start_date: 2025-07
         end_date: present
         highlights:
+          - "As part of Team Chrysalis, contributed to the migration of big-data processes to Google Cloud Platform (GCP), modernizing data workflows for scalability and reliability"
           - "Completed Generative AI Dojo certification with excellent grade; built production-grade experience in React, Spring Boot, Kubernetes, Terraform, Docker, and CI/CD during TDP Boot Camp"
           - "Implemented error mapping for Blaze rules migration POC; contributed salary object mapping for Tennessee and Alvar eligibility event mapping globally; completed VACCCP Group ID profile for Virginia"
 
@@ -60,6 +61,15 @@ cv:
           - "Reduced end-to-end latency of email and competitive-intelligence pipelines by 5-6s (3-10%) under strict 1-3 min SLA constraints via GPU batching, pipeline parallelism, and async execution"
           - "Extended CDC workflows with multimodal image ingestion via Pinecone vector retrieval and AWS S3, enabling scalable multimodal data handling across the platform"
 
+      - company: Nokia
+        position: R&D Intern
+        location: Chennai, India
+        start_date: 2024-08
+        end_date: 2025-05
+        highlights:
+          - "Automated and stress-tested AltiPlano microservices to improve reliability; optimized HostSim launch workflow; implemented batch migration of network intents and devices to streamline simulator operations"
+
+    Research Experience:
       - company: "Dusseldorf Institute of Technology"
         position: "Research Intern -- Reinforcement Learning | Dr. Andreas J. Kassler"
         location: "Germany (Remote)"
@@ -69,14 +79,6 @@ cv:
           - "Designed a multi-objective reward function for Vehicle-to-Grid (V2G) optimization, balancing SOC management, self-consumption, peak load reduction, and carbon minimization across a simulated multi-agent energy district"
           - "Implemented SAC and MADDPG deep RL algorithms GPU-trained via RLlib; integrated a rule-based safety shield enforcing hard operational constraints, reducing critical violations and boosting agent efficiency by 11%"
           - "Extended CityLearn with a peer-to-peer energy-sharing mechanism enabling surplus trading between agents, reducing grid imports and environmental impact"
-
-      - company: Nokia
-        position: R&D Intern
-        location: Chennai, India
-        start_date: 2024-08
-        end_date: 2025-05
-        highlights:
-          - "Automated and stress-tested AltiPlano microservices to improve reliability; optimized HostSim launch workflow; implemented batch migration of network intents and devices to streamline simulator operations"
 
       - company: "IIT (ISM) Dhanbad"
         position: "Research Intern -- NLP / Knowledge Graphs | Dr. Siddharth Agarwal"

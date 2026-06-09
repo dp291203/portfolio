@@ -1,97 +1,162 @@
 ---
 layout: page
-title: EVA - Enhanced Visitor Assistant Robot
-description: A fully autonomous campus robot combining ROS2, SLAM, LLM-powered conversation, face recognition, and an animatronic face for human-like interaction.
+title: EVA - Enhanced Virtual Assistant Humanoid Robot
+description: A 1.72m autonomous humanoid robot fusing ROS2, omnidirectional SLAM navigation, 6-DOF manipulation, and an LLM-powered conversational stack. My B.Tech multidisciplinary major project.
+img: assets/img/projects/eva/eva_interaction.jpg
 importance: 1
 category: robotics
 ---
 
-## The Problem
+{% include figure.liquid loading="eager" path="assets/img/projects/eva/eva_progression.png" class="img-fluid rounded z-depth-1" caption="From CAD to reality — EVA's build progression from frame to fully assembled 1.72m humanoid." %}
 
-University campuses are sprawling, confusing places for first-time visitors. Information desks are understaffed, signboards are outdated, and campus maps are difficult to read on the move. We asked a simple question: *what if a robot could walk up to you, recognize you, answer your questions in natural language, and physically guide you to your destination?* That question became EVA.
+## Overview
 
-## What EVA Actually Is
+**EVA (Enhanced Virtual Assistant)** is a full-scale **1.72-metre autonomous humanoid robot** built as my **B.Tech multidisciplinary major project** (Dec 2024 -- May 2025) with a five-member team spanning Mechanical, ECE, Mechatronics, and Computer Science. EVA recognises people, holds natural spoken conversations powered by a large language model, manipulates objects with two 6-DOF arms, and navigates autonomously on an omnidirectional drive — all orchestrated through **ROS2**.
 
-EVA is a full-stack autonomous visitor assistant robot built as my **B.Tech major project** (December 2024 -- May 2025). It is not a chatbot on wheels. It is a system that simultaneously runs real-time SLAM for navigation, a multi-camera perception pipeline for face and object recognition, a large-language-model backend for contextual conversation, and a servo-driven animatronic face that mirrors human expressions during dialogue. Everything is orchestrated through **ROS (Robot Operating System)**.
+The robot is an amalgamation of four engineering disciplines working as one system: **Mechanical** (skeletal fabrication), **Electronics** (CAN bus, custom PCBs), **Control Systems** (ROS2, SLAM, inverse kinematics), and **AI/NLP** (face recognition, speech, LLM reasoning, emotion classification).
 
-The robot was designed from the ground up -- mechanical CAD, custom URDF model for simulation, embedded firmware for actuators, and a layered software architecture that separates perception, planning, dialogue, and expression into independent ROS nodes communicating over topics and services.
+> **My role:** I led the **ROS2 architecture, autonomous drive, path planning, and SLAM implementation** — the entire navigation and localization stack that lets EVA move through the world on its own.
 
----
-
-## Technical Deep Dive
-
-### 1. Mechanical Design & URDF Model
-
-The physical platform uses a differential-drive base with two powered wheels and a caster. On top sits a torso housing compute hardware (Jetson + Raspberry Pi), a 2-DOF robotic arm for pointing gestures, and the animatronic head. I authored a complete **URDF (Unified Robot Description Format)** model so that every joint, link, collision mesh, and inertia tensor is specified. This URDF is loaded into **Gazebo** for simulation and into **RViz** for live visualization of sensor data and TF frames during real-world operation.
-
-The robotic arm initially suffered from visible stuttering and mechanical backlash when moving between poses. I traced the root cause to slop in the worm-gear transmission and overshoot in the PID position controller. The fix was two-fold: I replaced the worm gears with a planetary gear reduction that eliminated backlash, and I re-tuned the PID gains using Ziegler-Nichols with a feed-forward term to smooth trajectories. Post-fix, the arm tracks waypoints within 2 degrees of commanded position with no perceptible judder.
-
-### 2. Autonomous Navigation -- SLAM & Path Planning
-
-EVA maps unknown environments and localizes itself within them using **gmapping** (a Rao-Blackwellized particle filter SLAM) fed by a 2D LiDAR and wheel odometry. Once a map exists, the robot switches to **AMCL** (Adaptive Monte Carlo Localization) for ongoing pose estimation.
-
-Path planning is handled by the **Nav2** stack in ROS2. The global planner (Dijkstra / A*) produces a collision-free path on the occupancy grid, and the local planner (**DWB** -- Dynamic Window Approach) generates smooth velocity commands that respect kinematic constraints while dodging dynamic obstacles detected by the LiDAR in real time.
-
-I tuned the costmap inflation radius and the DWB scoring parameters extensively during corridor tests -- getting the robot to hug walls at a comfortable distance while still passing through standard-width doorways took several iterations.
-
-### 3. Perception Pipeline
-
-EVA runs multiple perception modules concurrently:
-
-- **Face Recognition**: A camera on the head captures frames, which are processed by a face-detection model (MTCNN) followed by a FaceNet embedding extractor. Known faces are matched against an enrolled database using cosine similarity. When EVA spots a recognized visitor, it greets them by name -- a small touch that makes interactions feel personal.
-- **Object Detection**: A YOLOv5 model identifies common campus objects (doors, elevators, notice boards, people) to enrich situational awareness. This feeds into the dialogue system so EVA can say things like "The elevator is right behind you."
-- **Depth Estimation**: A stereo camera provides depth data that supplements the LiDAR for obstacle avoidance in the vertical plane (e.g., overhanging signs).
-
-All perception outputs are published as ROS topics and fused in a central state manager that maintains an internal world model.
-
-### 4. Conversational AI -- Whisper + LLaMA + RAG
-
-EVA's dialogue system is the most ambitious subsystem. The pipeline works as follows:
-
-1. **Speech-to-Text**: OpenAI **Whisper** (medium model, running locally on the Jetson) transcribes visitor speech in real time. I optimized the model with INT8 quantization to keep latency under 1.5 seconds for a typical utterance.
-2. **Intent + Context**: The transcript is sent to a **LLaMA**-based language model fine-tuned on university-specific data -- department locations, faculty office hours, event schedules, campus policies. I built a **Retrieval-Augmented Generation (RAG)** layer on top: the query is embedded, matched against a FAISS vector store of university documents, and the top-k retrieved chunks are injected into the LLaMA prompt as context.
-3. **Response Generation**: LLaMA generates a natural-language response. A post-processing step extracts any navigation targets (e.g., "the library") and converts them to map coordinates for the planner.
-4. **Text-to-Speech**: The response is spoken through a speaker using a neural TTS engine.
-
-The end-to-end latency from the visitor finishing a sentence to EVA starting its reply is approximately **2.5 seconds** -- fast enough to feel conversational.
-
-### 5. The Animatronic Face
-
-This is what makes EVA memorable. The head contains 6 micro-servos controlling eyebrows (2 DOF), eyelids (2 DOF), and mouth corners (2 DOF). A lightweight emotion classifier runs on the audio stream (reusing my Samsung R&D ECAPA-TDNN work) and maps detected emotions to facial expressions. When the visitor sounds confused, EVA furrows its brows; when the visitor laughs, EVA smiles. The expressions are synchronized with the TTS output so the mouth moves in time with speech.
-
-The servo control runs on a dedicated Arduino Mega communicating with the Jetson over serial (rosserial). Update rate is 50 Hz, which is sufficient for smooth, natural-looking motion.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/arch_system.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The complete control-systems architecture — Drive, Interface, and arm/neck mechanisms, each with their own controllers, drivers, and power buses.
+</div>
 
 ---
 
-## Architecture Summary
+## 1. Autonomous Drive, SLAM & Path Planning
 
-```
-Visitor speaks
-    ↓
-Whisper STT → transcript
-    ↓
-RAG retrieval (FAISS + university docs)
-    ↓
-LLaMA inference → response text + navigation target
-    ↓                          ↓
-Neural TTS → speaker     Nav2 goal → autonomous drive
-    ↓
-Emotion classifier → animatronic face servos
-```
+This was my core contribution. EVA moves on a **four-wheel omnidirectional drive** powered by **4× Maxon 24V motors** that can translate and rotate in any direction simultaneously — essential for a tall humanoid that needs to reposition smoothly without turning its whole body.
 
-All modules run as ROS2 nodes. The system is launched from a single `ros2 launch` file.
+The navigation stack is a layered ROS2 pipeline:
+
+- **Sensing & SLAM**: **High-level processing** on an **NVIDIA Jetson AGX Orin** fuses a **2D LiDAR**, an **IMU (MPU6050)**, and **wheel encoders** feed the **SLAM Toolbox** in ROS2, which performs scan matching, pose estimation (fusing odometry + IMU), map updates, and loop closure to build and localize within a 2D occupancy grid.
+- **Path planning** generates a collision-free route across the occupancy grid and emits velocity commands `cmd_vel (Vx, Vy, Ω)`.
+- **Low-level control**: a **Raspberry Pi** drives the wheels through **Cytron motor drivers**, closing the loop with a **PID controller** (tuned to `Kp=19, Ki=3, Kd=0.5`) using encoder feedback. The drive runs off a dedicated 6S / 24V Li-ion bus.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/slam_pipeline.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/drive_cad.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Left: the full SLAM pipeline I built — from sensor acquisition through scan matching, pose estimation, map update, and loop closure. Right: the CAD of the omnidirectional drive base.
+</div>
+
+The early frame wobbled under counter-torque from the arm motors because the riveted aluminium channels had play between them. We **welded the entire skeleton** together, turning a flexible riveted frame into a rigid, robust chassis that holds calibration during motion.
 
 ---
 
-## Results & Current Status
+## 2. The 6-DOF Arms
 
-- Successfully navigated a 3-floor university building autonomously during live demos
-- Recognized 50+ enrolled faces with >95% accuracy
-- Handled multi-turn conversations about campus information with contextually accurate responses
-- Animatronic expressions were rated "surprisingly lifelike" by test visitors
+Each arm is a **6-DOF manipulator** with links machined from **aluminium, Delrin polymer, and PLA**. The four major joints — shoulder pitch, shoulder roll, bicep, and elbow — are driven by **BLDC motors** over a CAN bus, while a **Teensy** drives the forearm and wrist servos plus **6× N20 motors** per hand, with **flex sensors** on the fingers for closed-loop grip feedback.
+
+The arm software follows a clean ROS2 motion pipeline — **URDF model → SRDF configs → RViz simulation → MoveIt planning → 6-DOF inverse kinematics → joint-state publishing**. Joint targets travel from the **Jetson Orin AGX** to a **Raspberry Pi**, then out over a **Waveshare dual CAN HAT** across two CAN buses (CAN0/CAN1) to the joint controllers.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/arm_flow.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/arm_cad.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Left: the arm control flow from ROS2/MoveIt down to per-joint CAN actuation and N20 finger control. Right: the 726mm 6-DOF arm CAD.
+</div>
+
+We verified the kinematics by building the full **DH-parameter table** and computing forward/inverse kinematics through homogeneous transformation matrices, validating the end-effector pose against the physical arm before trusting MoveIt trajectories on hardware. I also designed and printed **custom PCBs** to consolidate the per-joint wiring and CAN transceivers.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/rviz_sim_for_gestures.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/real_arm.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Left: RViz simulation of EVA performing gestures, validated before deployment. Right: the fabricated 6-DOF arm on the robot.
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/pcb_arms.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/Inverse_kinematics_Arms.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Left: the custom-designed and printed PCBs for the arms. Right: the DH-parameter table and forward/inverse kinematics computation.
+</div>
+
+---
+
+## 3. Conversational AI & NLP
+
+EVA's dialogue stack lets a person simply walk up and talk:
+
+1. **Face Recognition** — the **InsightFace** library with a **ResNet** backbone matches visitors against a database built from SRM faculty-finder images, greeting known people by name via cosine-similarity matching on stored embeddings.
+2. **Speech Recognition** — audio is captured through a **Samson microphone array** (16 kHz, 16-bit) and transcribed with **Whisper**.
+3. **Reasoning** — a **Llama-3** LLM interprets the request. A tool-routing layer decides whether to answer directly, hit **SerpAPI** for live web search, or query **Google Maps** for navigation and directions.
+4. **Text-to-Speech** — responses are voiced through **gTTS**.
+5. **Emotion Classification** — a **DistilRoBERTa** model classifies the conversation into seven emotions (anger, disgust, fear, joy, neutral, sadness, surprise), which drive EVA's facial expression.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/ai_nlp_eva.png" class="img-fluid rounded z-depth-1" caption="The complete AI/NLP flow: face recognition, Whisper speech, Llama-3 reasoning with tool routing, gTTS speech, and emotion classification." %}
+    </div>
+</div>
+
+---
+
+## 4. The Animatronic Face
+
+EVA's personality lives on a **screen-based animated face**. Rather than mechanical eyebrows, a curved display renders an expressive set of eyes and mouth that shift with the emotion classifier's output — a warm blue smile when the conversation is friendly, changing in real time as the dialogue's tone changes. Paired with the depth camera and microphone mounted just below, it makes EVA feel approachable rather than industrial.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/eva_face.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/eva_interaction.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    EVA's expressive display, depth camera, and microphone array (left), and a visitor interacting with the robot face-to-face (right).
+</div>
+
+---
+
+## 5. Mechanical Design & Fabrication
+
+The skeleton is built from **19×19 mm square aluminium channels** joined by **laser-cut 3 mm aluminium plates**. The body stands **1720.8 mm** tall on a **606 mm** wide base. Fabrication spanned **material selection, torque calculations, FDM/SLA 3D printing, CNC milling, welding, and laser cutting** — a genuinely cross-disciplinary build effort.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/projects/eva/eva_cad.png" class="img-fluid rounded z-depth-1" caption="Full-body CAD — 1720.8 mm tall, 606 mm wide, on a 603 mm omnidirectional drive base." %}
+    </div>
+</div>
+
+---
+
+## Demo
+
+{% include video.liquid path="assets/img/projects/eva/eva_demo.mp4" class="img-fluid rounded z-depth-1" controls=true muted=true loop=true autoplay=true %}
+<div class="caption">
+    Integrated demonstration — EVA recognising, conversing, and operating its arms and drive together.
+</div>
 
 ---
 
 ## What I Learned
 
-Building EVA forced me to work across the entire stack -- from machining gears to fine-tuning LLMs. The hardest part was not any single module but making them all work together in real time on constrained hardware. I gained deep practical experience with ROS2 lifecycle management, Jetson GPU scheduling, real-time embedded control, and the messy reality of deploying AI models outside the lab.
+Leading the navigation stack on a 1.72m humanoid taught me how unforgiving real hardware is. SLAM that looks perfect in RViz drifts the moment a welded joint flexes or an IMU heats up; a perfectly planned A\* path is useless if the inverse kinematics and PID loop on the Teensy can't track `cmd_vel` cleanly. The biggest lesson was **systems integration** — getting the Jetson, Raspberry Pi, Teensy boards, CAN bus, and a dozen ROS2 nodes to behave as one coherent robot in real time, on constrained hardware, in a noisy real-world room. That experience shaped how I approach every complex engineering system since.
