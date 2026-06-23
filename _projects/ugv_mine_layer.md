@@ -3,6 +3,7 @@ layout: page
 title: UGV (Indian Army Collaboration)
 description: A semi-autonomous Unmanned Ground Vehicle developed in collaboration with the Indian Army. Details are confidential. Top 30 of 260+ innovations at the Northern Command Inno Yodha Competition.
 importance: 1
+img: /assets/img/projects/ugv/ugv.jpeg
 category: robotics
 ---
 
