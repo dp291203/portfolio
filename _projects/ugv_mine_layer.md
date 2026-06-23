@@ -9,7 +9,7 @@ category: robotics
 
 > **Note:** This project was carried out in collaboration with the **Indian Army** and its technical details are **confidential**. The summary below is intentionally kept high-level.
 
-![UGV](/assets/img/projects/ugv/ugv.jpeg)
+{% include figure.liquid loading="eager" path="/assets/img/projects/ugv/ugv.jpeg" class="img-fluid rounded z-depth-1" caption="UGV in action" %}
 
 ## Overview
 
