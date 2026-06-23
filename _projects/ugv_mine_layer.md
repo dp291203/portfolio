@@ -8,6 +8,8 @@ category: robotics
 
 > **Note:** This project was carried out in collaboration with the **Indian Army** and its technical details are **confidential**. The summary below is intentionally kept high-level.
 
+![UGV](/assets/img/projects/ugv/ugv.jpeg)
+
 ## Overview
 
 From **May to July 2025**, I worked with a **8-member multidisciplinary team** to design, fabricate, and field-test a **semi-autonomous Unmanned Ground Vehicle (UGV)** in collaboration with an Engineer Regiment of the Indian Army. The goal was to automate a hazardous field engineering task so that it could be performed without putting personnel at risk.
